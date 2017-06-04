@@ -23,9 +23,9 @@ const Text = styled.h3`
 const StartButton = styled.div`
   width: 0; 
 	height: 0; 
-	border-top: 25px solid transparent;
-	border-bottom: 25px solid transparent;
-	border-left: 25px solid deepskyblue;
+	border-top: 50px solid transparent;
+	border-bottom: 50px solid transparent;
+	border-left: 50px solid deepskyblue;
   cursor: pointer;
 `;
 
