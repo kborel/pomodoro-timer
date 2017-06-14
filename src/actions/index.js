@@ -1,20 +1,20 @@
-import { START_TIMER, STOP_TIMER, RESET_TIMER, TICK } from './constants';
+import { START, STOP, RESET, TICK } from './constants';
 
 export const startTimer = () => (
   {
-    type: START_TIMER
+    type: START
   }
 );
 
 export const stopTimer = () => (
   {
-    type: STOP_TIMER
+    type: STOP
   }
 );
 
 export const resetTimer = () => (
   {
-    type: RESET_TIMER
+    type: RESET
   }
 );
 
