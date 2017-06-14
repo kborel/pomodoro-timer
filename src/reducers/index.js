@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import * as reducers from './reducers';
+import * as reducers from './timerReducer';
 
 const pomodoroApp = combineReducers(reducers);
 
