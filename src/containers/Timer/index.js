@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { startTimer, stopTimer, resetTimer } from '../actions';
+import { startTimer, stopTimer, resetTimer } from './actions';
 
  
 class Timer extends Component {

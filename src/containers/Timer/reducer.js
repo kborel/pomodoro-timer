@@ -1,4 +1,4 @@
-import { START, STOP, TICK, RESET } from '../actions/constants';
+import { START, STOP, TICK, RESET } from './constants';
 
 const defaultState = {
   active: false,

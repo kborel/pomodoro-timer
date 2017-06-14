@@ -1,5 +1,5 @@
 import React from 'react';
-import Timer from './containers/Timer';
+import Timer from '../../containers/Timer';
 
 const App = () => (
   <div>

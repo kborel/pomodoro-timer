@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import reducer from './reducers/timerReducer';
-import sagas from './sagas';
+import reducer from './containers/Timer/reducer';
+import sagas from './containers/Timer/sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 

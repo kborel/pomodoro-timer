@@ -1,4 +1,4 @@
-import { START, STOP, RESET } from './actions/constants';
+import { START, STOP, RESET } from './constants';
 import { tick } from './actions';
 import { take, call, put, race, select } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
