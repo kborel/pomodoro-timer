@@ -1,5 +1,5 @@
 import { START, STOP, RESET } from './constants';
-import { tick } from './actions';
+import { tick, resetTimer } from './actions';
 import { take, call, put, race, select } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 
@@ -13,6 +13,8 @@ export default function* runTimer() {
       let seconds = yield select(getSeconds);
       if (seconds === 0) {
         // Finished action
+        new Notification('Timer Finished!');
+        yield put(resetTimer());
         break;
       }
 
