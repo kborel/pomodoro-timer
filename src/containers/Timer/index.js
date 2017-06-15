@@ -9,12 +9,22 @@ class Timer extends Component {
   }
 
   render() {
+    const { 
+      seconds,
+      active,
+      startTimer,
+      stopTimer, 
+      resetTimer
+    } = this.props;
     return (
       <div>
-        { this.props.seconds }
-        { !this.props.active ? <button onClick={this.props.startTimer}>Start</button>
-                        : <button onClick={this.props.stopTimer}>Stop</button> }
-        <button onClick={this.props.resetTimer}>Reset</button>
+        { seconds }
+        { !active ? (
+          <button onClick={startTimer}>Start</button>
+        ) : (
+          <button onClick={stopTimer}>Stop</button> 
+        )}
+        <button onClick={resetTimer}>Reset</button>
       </div>
     );
   }
