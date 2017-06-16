@@ -1,4 +1,4 @@
-import { START, STOP, RESET, TICK } from './constants';
+import { START, STOP, RESET, TICK, SET } from './constants';
 
 export const startTimer = () => (
   {
@@ -21,5 +21,12 @@ export const resetTimer = () => (
 export const tick = () => (
   {
     type: TICK
+  }
+);
+
+export const setTimer = seconds => (
+  {
+    type: SET,
+    payload: seconds
   }
 );
