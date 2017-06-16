@@ -3,7 +3,7 @@ import { Button, Statistic, Grid } from 'semantic-ui-react';
 
 const Timer = props => {
   const {
-      seconds,
+    seconds,
     active,
     startTimer,
     stopTimer,

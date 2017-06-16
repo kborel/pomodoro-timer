@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Timer from './Timer';
 import TimerMenu from './TimerMenu';
 import { startTimer, stopTimer, resetTimer, setTimer } from '../actions';
+import { formatTimer } from '../utils/helpers';
 
 class App extends Component {
   componentDidMount() {
@@ -20,10 +21,11 @@ class App extends Component {
       seconds,
       active
     } = this.props;
+    const formattedTime = formatTimer(seconds);
     return (
       <Container>
         <Helmet>
-            <title>({ this.props.seconds.toString() }) Pomodoro Timer </title>
+            <title>({ formattedTime }) Pomodoro Timer </title>
         </Helmet>
         <Grid textAlign='center'>
           <Grid.Row>
@@ -38,7 +40,7 @@ class App extends Component {
               stopTimer={stopTimer}
               resetTimer={resetTimer}
               active={active}
-              seconds={seconds}
+              seconds={formattedTime}
             />
           </Grid.Row>
         </Grid>
