@@ -1,11 +1,9 @@
-import { START, STOP, RESET } from './constants';
+import { START, STOP, RESET, SET } from './constants';
 import { tick, resetTimer } from './actions';
 import { take, call, put, race, select } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 
 const getSeconds = state => state.seconds;
-
-const alerty = () => alert('Poggers');
 
 export default function* runTimer() {
   while(yield take(START)) {
@@ -18,17 +16,17 @@ export default function* runTimer() {
         break;
       }
 
-      const { stop, reset } = yield race({
+      const { stop, reset, set } = yield race({
         stop: take(STOP),
         reset: take(RESET),
+        set: take(SET),
         tick: call(delay, 1000)
       })
-      if (!stop && !reset) {
+      if (!stop && !reset && !set) {
         yield put(tick());
       } else {
         break;
       }
     }
   }
-  yield take(RESET, call(alerty));
 }

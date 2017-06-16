@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { startTimer, stopTimer, resetTimer } from './actions';
+import { startTimer, stopTimer, resetTimer, setTimer } from './actions';
 
  
 class Timer extends Component {
@@ -14,10 +14,13 @@ class Timer extends Component {
       active,
       startTimer,
       stopTimer, 
-      resetTimer
+      resetTimer,
+      setTimer
     } = this.props;
     return (
       <div>
+        <button onClick={() => setTimer(1500)}>Pomodoro</button>
+        <button onClick={() => setTimer(300)}>Break</button>
         { seconds }
         { !active ? (
           <button onClick={startTimer}>Start</button>
@@ -33,4 +36,4 @@ class Timer extends Component {
 export default connect(state => ({
   active: state.active,
   seconds: state.seconds
-}), { startTimer, stopTimer, resetTimer })(Timer);
+}), { startTimer, stopTimer, resetTimer, setTimer })(Timer);
