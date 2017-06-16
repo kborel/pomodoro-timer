@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
 import { Button, Statistic, Grid } from 'semantic-ui-react';
 import { startTimer, stopTimer, resetTimer, setTimer } from './actions';
 import TimerMenu from '../TimerMenu';
@@ -21,9 +20,6 @@ class Timer extends Component {
     } = this.props;
     return (
       <div>
-        <Helmet>
-            <title>({ seconds.toString() }) Pomodoro Timer </title>
-        </Helmet>
         <Grid centered>
           <Grid.Row>
             <TimerMenu setTimer={setTimer}/>
