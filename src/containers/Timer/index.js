@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
+import { Button, Statistic, Grid } from 'semantic-ui-react';
 import { startTimer, stopTimer, resetTimer, setTimer } from './actions';
+import TimerMenu from '../TimerMenu';
 
- 
 class Timer extends Component {
   componentDidMount() {
     Notification.requestPermission();
@@ -23,16 +24,26 @@ class Timer extends Component {
         <Helmet>
             <title>({ seconds.toString() }) Pomodoro Timer </title>
         </Helmet>
-
-        <button onClick={() => setTimer(1500)}>Pomodoro</button>
-        <button onClick={() => setTimer(300)}>Break</button>
-        { seconds }
-        { !active ? (
-          <button onClick={startTimer}>Start</button>
-        ) : (
-          <button onClick={stopTimer}>Stop</button> 
-        )}
-        <button onClick={resetTimer}>Reset</button>
+        <Grid centered>
+          <Grid.Row>
+            <TimerMenu setTimer={setTimer}/>
+          </Grid.Row>
+          <Grid.Row>
+            <Statistic>
+              <Statistic.Value>{ seconds }</Statistic.Value>
+            </Statistic>
+          </Grid.Row>
+          <Grid.Row>
+            <Button.Group>
+              {!active ? (
+                <Button primary content='Start' icon='play' onClick={startTimer} />
+              ) : (
+                <Button primary content='Pause' icon='pause' onClick={stopTimer} />
+              )}
+                <Button secondary content='Reset' icon='undo' onClick={resetTimer}/>
+            </Button.Group>
+          </Grid.Row>
+        </Grid>
       </div>
     );
   }

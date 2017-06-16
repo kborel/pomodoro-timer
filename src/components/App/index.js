@@ -1,11 +1,12 @@
 import React from 'react';
+import { Header, Container } from 'semantic-ui-react';
 import Timer from '../../containers/Timer';
 
 const App = () => (
-  <div>
-    <h1>Pomodoro Timer</h1>
+  <Container textAlign='center'>
+    <Header dividing size='huge'>Pomodoro Timer</Header>
     <Timer/>
-  </div>
+  </Container>
 );
 
 export default App;
