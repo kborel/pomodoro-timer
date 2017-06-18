@@ -8,7 +8,12 @@ const Timer = props => {
     startTimer,
     stopTimer,
     resetTimer
-    } = props;
+  } = props;
+  
+  const activeButton = !active ? (
+  <Button primary content='Start' icon='play' onClick={startTimer} /> ) : (
+  <Button primary content='Pause' icon='pause' onClick={stopTimer} /> );
+
   return (
     <Grid textAlign='center'>
       <Grid.Row>
@@ -18,11 +23,7 @@ const Timer = props => {
       </Grid.Row>
       <Grid.Row>
         <Button.Group>
-          {!active ? (
-            <Button primary content='Start' icon='play' onClick={startTimer} />
-          ) : (
-            <Button primary content='Pause' icon='pause' onClick={stopTimer} />
-          )}
+          { activeButton }
           <Button secondary content='Reset' icon='undo' onClick={resetTimer} />
         </Button.Group>
       </Grid.Row>
