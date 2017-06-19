@@ -12,6 +12,8 @@ export default function* runTimer() {
       if (seconds === 0) {
         // Finished action
         new Notification('Timer Finished!');
+        const audio = new Audio('alarm1.wav');
+        audio.play();
         yield put(resetTimer());
         break;
       }
