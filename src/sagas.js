@@ -11,9 +11,11 @@ export default function* runTimer() {
       let seconds = yield select(getSeconds);
       if (seconds === 0) {
         // Finished action
-        new Notification('Timer Finished!');
+        if ("Notification" in window) {
+          new Notification('Timer Finished!');
+        }
         const audio = new Audio('alarm1.wav');
-        audio.play();
+        audio.play().catch(e => console.log('Error: Alarm playback not supported'));
         yield put(resetTimer());
         break;
       }

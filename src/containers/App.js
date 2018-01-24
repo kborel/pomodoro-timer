@@ -9,7 +9,9 @@ import { formatTimer } from '../utils/helpers';
 
 class App extends Component {
   componentDidMount() {
-    Notification.requestPermission();
+    if ("Notification" in window) {
+      Notification.requestPermission();
+    }
   }
 
   render() {
