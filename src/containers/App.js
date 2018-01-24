@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Grid, Container } from 'semantic-ui-react';
+import { Grid, Container, Menu, Segment } from 'semantic-ui-react';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import Timer from './Timer';
@@ -23,28 +23,28 @@ class App extends Component {
     } = this.props;
     const formattedTime = formatTimer(seconds);
     return (
-      <Container>
+      <React.Fragment>
         <Helmet>
             <title>({ formattedTime }) Pomodoro Timer </title>
         </Helmet>
-        <Grid textAlign='center'>
-          <Grid.Row>
-            <Header dividing size='huge'>Pomodoro Timer</Header>
-          </Grid.Row>
-          <Grid.Row>
-            <TimerMenu setTimer={setTimer}></TimerMenu>
-          </Grid.Row>
-          <Grid.Row>
-            <Timer
-              startTimer={startTimer}
-              stopTimer={stopTimer}
-              resetTimer={resetTimer}
-              active={active}
-              seconds={formattedTime}
-            />
-          </Grid.Row>
-        </Grid>
-      </Container>
+        <Menu>
+          <Menu.Item header>Pomodoro Timer</Menu.Item>
+        </Menu>
+        <Container style={{ marginTop: '6em'}}>
+          <Grid centered>
+            <TimerMenu setTimer={setTimer} />
+            <Segment circular size="massive" style={{ marginTop: '3em' }}>
+              <Timer
+                startTimer={startTimer}
+                stopTimer={stopTimer}
+                resetTimer={resetTimer}
+                active={active}
+                seconds={formattedTime}
+              />
+            </Segment>
+          </Grid>
+        </Container>
+      </React.Fragment>
     );
   }
 }

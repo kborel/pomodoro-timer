@@ -16,11 +16,9 @@ const Timer = props => {
 
   return (
     <Grid textAlign='center'>
-      <Grid.Row>
         <Statistic>
           <Statistic.Value>{seconds}</Statistic.Value>
         </Statistic>
-      </Grid.Row>
       <Grid.Row>
         <Button.Group>
           { activeButton }
